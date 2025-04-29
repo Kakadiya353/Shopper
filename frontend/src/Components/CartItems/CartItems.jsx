@@ -1,68 +1,145 @@
-import React, { useContext } from 'react';
-import './CartItems.css'
-import { ShopContext } from '../../Context/ShopContext';
-import remove_icon from '../Assets/cart_cross_icon.png'
+import React, { useEffect, useState } from 'react';
+import './CartItems.css';
+import removeIcon from '../Assets/cart_cross_icon.png';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import Checkout from '../Checkout/Checkout';
+import OfferItems from '../Offers/OfferItems';
+
 const CartItems = () => {
-    const { getTotalCartAmount, all_product, cartItems, removeFromCart } = useContext(ShopContext);
+    const [cartItems, setCartItems] = useState([]);
+    const userEmail = localStorage.getItem('userEmail') || 'user@example.com';
+    const token = localStorage.getItem("token");
+    const [offers, setOffers] = useState([]);
+    const [selectedOffer, setSelectedOffer] = useState(null);
+
+    const fetchCartItems = async () => {
+        try {
+            const res = await axios.get('http://localhost:5000/api/cart', {
+                headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+            });
+            setCartItems(res.data);
+        } catch (err) {
+            console.error('Fetch cart error:', err);
+        }
+    };
+
+    const fetchOffers = async () => {
+        try {
+            const res = await axios.get('http://localhost:5000/api/cart/offer', {
+                headers: { 'Authorization': `Bearer ${token}` },
+            });
+            // const activeOffers = res.data.filter(offer => offer.Status === 'Active');
+            setOffers(res.data);
+        } catch (err) {
+            console.error('Fetch offers error:', err);
+        }
+    };
+
+    const handleQuantityChange = async (productName, action) => {
+        const item = cartItems.find(i => i.ProductName === productName);
+        if (!item) return;
+
+        let newQuantity = item.Quantity;
+        if (action === 'increase') newQuantity += 1;
+        else if (action === 'decrease' && newQuantity > 1) newQuantity -= 1;
+
+        try {
+            const res = await axios.post('http://localhost:5000/api/cart/update-quantity', {
+                productName: item.ProductName,
+                quantity: newQuantity,
+                email: userEmail,
+            });
+
+            setCartItems(prev =>
+                prev.map(i =>
+                    i.ProductName === res.data.productName
+                        ? { ...i, Quantity: res.data.quantity, Total: res.data.totalPrice }
+                        : i
+                )
+            );
+        } catch (err) {
+            console.error('Update quantity error:', err);
+        }
+    };
+
+    const handleRemoveItem = async (productName) => {
+        try {
+            await axios.delete(`http://localhost:5000/api/cart/${productName}`, {
+                headers: { Authorization: `Bearer ${token}` },
+            });
+            setCartItems(prev => prev.filter(i => i.ProductName !== productName));
+        } catch (err) {
+            console.error('Remove item error:', err);
+        }
+    };
+
+    const handleOfferSelect = (offer) => {
+        if (selectedOffer?._id === offer._id) {
+            // If already selected, cancel the offer
+            setSelectedOffer(null);
+        } else {
+            // Otherwise, select the offer
+            setSelectedOffer(offer);
+        }
+    };
+
+
+    useEffect(() => {
+        fetchCartItems();
+        fetchOffers();
+    }, );
+
     return (
         <div className="cartitems">
-            <div className="cartitems-format-main">
-                <p>Products</p>
-                <p>Title</p>
-                <p>Price</p>
-                <p>Quantity</p>
-                <p>Total</p>
-                <p>Remove</p>
-            </div>
-            <hr />
-            {all_product.map((e) => {
-                if (cartItems[e.id] > 0) {
-                    return <div>
-                        <div className="cartitems-format cartitems-format-main">
-                            <img src={e.image} alt="" className='carticon-product-icon' />
-                            <p>{e.name}</p>
-                            <p>${e.new_price}</p>
-                            <button className='cartitems-quantity'>{cartItems[e.id]}</button>
-                            <p>${e.new_price * cartItems[e.id]}</p>
-                            <img className='cartitems-remove-icon' src={remove_icon} onClick={() => { removeFromCart(e.id) }} alt="" />
-                        </div>
-                        <hr />
+            {cartItems.length === 0 ? (
+                <p>
+                    Cart is empty. Continue Shopping <Link to="/" className="shopping-continue">here</Link>
+                </p>
+            ) : (
+                <>
+                    <div className="cartitems-format-main">
+                        <p>Title</p>
+                        <p>Price</p>
+                        <p>Quantity</p>
+                        <p>Total</p>
+                        <p>Remove</p>
                     </div>
-                }
-                return null;
-            })}
-            <div className="cartitems-down">
-                <div className="cartitems-total">
-                    <h1>Cart Totals</h1>
-                    <div>
-                        <div className="cartitems-total-item">
-                            <p>Subtotal</p>
-                            <p>${getTotalCartAmount()}</p>
+                    <hr />
+                    {cartItems.map(item => (
+                        <div key={item.ProductName}>
+                            <div className="cartitems-format cartitems-format-main">
+                                <p>{item.ProductName}</p>
+                                <p>${item.Price}</p>
+                                <div className="cartitems-quantity-controls">
+                                    <button onClick={() => handleQuantityChange(item.ProductName, 'decrease')}>-</button>
+                                    <button className="cartitems-quantity">{item.Quantity}</button>
+                                    <button onClick={() => handleQuantityChange(item.ProductName, 'increase')}>+</button>
+                                </div>
+                                <p>${item.Total.toFixed(2)}</p>
+                                <img
+                                    src={removeIcon}
+                                    alt="Remove"
+                                    className="cartitems-remove-icon"
+                                    onClick={() => handleRemoveItem(item.ProductName)}
+                                />
+                            </div>
+                            <hr />
                         </div>
-                        <hr />
-                        <div className="cartitems-total-item">
-                            <p>Shipping Fee</p>
-                            <p>Free</p>
-                        </div>
-                        <hr />
-                        <div className="cartitems-total-item">
-                            <h3>Total</h3>
-                            <h3>${getTotalCartAmount()}</h3>
-                        </div>
-                    </div>
-                    <button>PROCEED TO CHECKOUT</button>
-                </div>
-                <div className="cartitems-promocode">
-                    <p>If you have a promo code, Enter it here</p>
-                    <div className="cartitems-promobox">
-                        <input type="text" placeholder='promo code' />
-                        <button>Submit</button>
-                    </div>
-                </div>
+                    ))}
 
-            </div>
+                    <OfferItems
+                        offers={offers}
+                        selectedOffer={selectedOffer}
+                        handleOfferSelect={handleOfferSelect}
+                    />
+
+                    <Checkout cartItems={cartItems} offerItem={selectedOffer}></Checkout>
+                </>
+            )}
 
         </div>
-    )
-}
+    );
+};
+
 export default CartItems;

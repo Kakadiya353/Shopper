@@ -1,0 +1,67 @@
+.offers-section {
+    margin: 20px 0;
+    overflow-x: auto; /* scroll horizontally if offers are more */
+    white-space: nowrap; /* keep offers in one line */
+    padding-bottom: 10px; /* give little space below for scrollbar */
+  }
+
+  .text-flow{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 250px; /* example */
+  }
+  
+  .offer-card {
+    display: inline-block; /* important: to keep cards side by side */
+    vertical-align: top;
+    width: 250px; /* adjust card width */
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-right: 10px; /* space between cards */
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .offer-card h4 {
+    margin: 0 0 5px;
+  }
+  
+  .offer-card button {
+    margin-top: 10px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .offers-section::-webkit-scrollbar {
+    height: 6px;
+  }
+  
+  .offers-section::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+  }
+  
+  .offers-section::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+    
+  .message-type {
+    background-color: #4CAF50; /* green for Apply Offer */
+    color: white;
+    padding: 5px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+  }
+  
+  /* Optional: When you want a different style if it's cancel */
+  .message-type.cancel {
+    background-color: #f44336; /* red for Cancel */
+  }
+  

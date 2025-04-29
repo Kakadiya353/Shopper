@@ -1,0 +1,282 @@
+.datatable-header {
+    background-color: #007bff;
+    width: 50%;          /* Set the width */
+    margin: 0 auto;      /* This will center it horizontally */
+    padding: 10px;       /* Optional: Add padding for better spacing */
+    color: white;        /* Ensure the text is visible on the blue background */
+    text-align: center;  /* Optional: Center text horizontally within the header */
+    border-radius: 50px;
+    margin-bottom: 30px;
+}
+
+
+/* Search Form Styling */
+.user-form-search {
+    margin: 50px 0 15px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Flexbox for inline input & buttons */
+  .search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between input and buttons */
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  /* Input Styling */
+  .search-container input {
+    flex: 1; /* Input takes remaining space */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 40px;
+    font-size: 16px;
+  }
+  
+  /* Buttons Styling */
+  .user-form-btn-search {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 40px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    white-space: nowrap; /* Prevents text wrapping */
+  }
+  
+  .user-form-btn-search:hover {
+    background-color: #0056b3;
+    opacity: 0.9;
+  }
+  
+  /* Responsive Design for Mobile Screens */
+  @media (max-width: 600px) {
+    .search-container {
+      flex-direction: column; /* Stack items on smaller screens */
+      width: 90%;
+    }
+  
+    .search-container input {
+      width: 100%;
+    }
+  
+    .user-form-btn-search {
+      width: 100%;
+      margin-top: 5px;
+    }
+  }
+
+
+/* Wrapper for the DataTable */
+.custom-datatable-wrapper {
+    margin: 20px auto;
+    padding: 10px;
+    width: 90%;
+    max-width: 1200px;
+}
+
+/* Styling for pagination */
+.custom-datatable-wrapper .react-pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.custom-datatable-wrapper .react-pagination ul {
+    display: inline-flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.custom-datatable-wrapper .react-pagination li {
+    margin: 0 5px;
+}
+
+.custom-datatable-wrapper .react-pagination a {
+    text-decoration: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.custom-datatable-wrapper .react-pagination a:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Styling for table with smaller screens */
+@media (max-width: 768px) {
+    .custom-datatable th,
+    .custom-datatable td {
+        font-size: 12px;
+        padding: 10px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .custom-datatable-wrapper {
+        padding: 5px;
+        width: 100%;
+    }
+}
+
+/* Make image smaller with rounded corners */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Specific class for smaller images with rounded corners */
+.smaller-image {
+    width: 65px;
+    height: 65px;
+    border-radius: 8px;
+}
+
+/* Make images responsive within a container with rounded corners */
+.responsive-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+
+/* Icon margin */
+.action-buttons button i {
+    margin-right: 6px; /* Space between the icon and the text */
+}
+
+/* Edit button styles */
+.edit-btn {
+    background-color: #4CAF50; /* Green background */
+    color: #333; /* Dark text */
+}
+
+.edit-btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Delete button styles */
+.delete-btn {
+    background-color: #F44336; /* Red background */
+    color: #333; /* Dark text */
+}
+
+.delete-btn:hover {
+    background-color: #E53935; /* Darker red on hover */
+}
+
+/* View button styles */
+.view-btn {
+    background-color: #2196F3; /* Blue background */
+    color: #333; /* Dark text */
+}
+
+.view-btn:hover {
+    background-color: #1E88E5; /* Darker blue on hover */
+}
+
+/* Optional: Button focus styles for accessibility */
+.action-buttons button:focus {
+    outline: 2px solid #00bcd4; /* Cyan border on focus */
+    outline-offset: 2px;
+}
+
+
+/* Active button styles */
+.active-btn.active {
+    background-color: #4CAF50; /* Green background */
+    color: white;
+}
+
+.active-btn.inactive {
+    background-color: #F44336; /* Red background */
+    color: white;
+}
+
+.active-btn:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+.active-btn i {
+    margin-right: 6px; /* Space between the icon and the text */
+}
+
+/* Icon margin */
+.action-buttons button i {
+    margin-right: 6px; /* Space between the icon and the text */
+}
+
+/* Button focus styles */
+.action-buttons button:focus {
+    outline: 2px solid #00bcd4; /* Cyan border on focus */
+    outline-offset: 2px;
+}
+
+/* Wrapper for the action buttons */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* General button styles */
+.action-buttons button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px; /* Adjust padding to make buttons more compact */
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+    color: #333; /* Dark text */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    width: auto; /* Allow buttons to resize based on content */
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

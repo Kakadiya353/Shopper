@@ -1,0 +1,154 @@
+.contact-us {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.contact-us-logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.contact-us-links {
+  list-style-type: none;
+  padding: 0;
+}
+
+.contact-us-links input {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 40px;
+}
+
+.contact-us-social-icon {
+  margin-top: 20px;
+}
+
+.contact-us-icons-container {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.contact-us-copyright {
+  margin-top: 20px;
+}
+
+.contact-us-admin-controls {
+  margin-top: 20px;
+}
+
+.contact-us-admin-controls button {
+  margin-right: 10px;
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.contact-us-admin-controls button:hover {
+  background-color: #0056b3;
+}
+
+.contact-us-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 15px;
+    background: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 15px 0;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.input-group label {
+    font-weight: 600;
+    color: #2d3748;
+    font-size: 13px;
+}
+
+.input-group input {
+    padding: 8px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    font-size: 13px;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #2196f3;
+    box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.1);
+}
+
+.contact-us-admin-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 15px;
+}
+
+.update-btn {
+    background: linear-gradient(135deg, #2196f3, #1976d2);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.update-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.delete-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.delete-buttons button {
+    background-color: #f8f9fa;
+    color: #dc3545;
+    border: 1px solid #dc3545;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.delete-buttons button:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+.success-message {
+    background-color: #dff0d8;
+    color: #3c763d;
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.error-message {
+    background-color: #f2dede;
+    color: #a94442;
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 1rem 0;
+    text-align: center;
+}

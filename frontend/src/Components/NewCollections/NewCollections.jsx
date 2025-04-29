@@ -1,27 +1,48 @@
+// src/components/NewCollections/NewCollections.jsx
 import React, { useEffect, useState } from 'react';
-import './NewCollections.css'
+import './NewCollections.css';
 import Item from '../Item/Item';
+
 const NewCollections = () => {
-    const [new_collection, setNew_collection] = useState([]);
-    useEffect(() => {
-        fetch('http://localhost:4000/newcollections')
-            .then((response) => response.json())
-            .then((data) => setNew_collection(data));
-    }, []);
+  const [newCollections, setNewCollections] = useState([]);
+  const [error, setError] = useState(null);
 
-    return (
-        <div className="new-collections">
-            <h1>NEW COLLECTIONS</h1>
-            <hr />
-            <div className='collections'>
-                {new_collection.map((item, i) => {
-                    return <Item key={i} id={item.id} name={item.name} image={item.image} new_price={item.new_price} old_price={item.old_price} />
-                })}
-            </div>
+  useEffect(() => {
+    fetch('http://localhost:5000/api/products/new')
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.json();
+      })
+      .then(data => {
+        setNewCollections(data);
+        console.log('Fetched new collections:', data);
+      })
+      .catch(err => {
+        console.error('Error fetching new collections:', err);
+        setError('Failed to load new collections');
+        setNewCollections([]);
+      });
+  }, []);
 
-        </div>
-
-    );
+  return (
+    <div className="new-collections">
+      <h1>NEW COLLECTIONS</h1>
+      <hr />
+      {error && <p className="error-message">{error}</p>}
+      <div className="collections">
+        {newCollections.map(item => (
+          <Item
+            key={item._id}
+            id={item._id}
+            name={item.Name}
+            image={item.ImageURI}        
+            new_price={item.Price}
+            old_price={item.Old_Price}
+          />
+        ))}
+      </div>
+    </div>
+  );
 };
 
-export default NewCollections
+export default NewCollections;

@@ -1,0 +1,525 @@
+.manage-offers-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.detail {
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.separator {
+    margin: 0 10px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.status-message {
+    padding: 12px 20px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    animation: slideIn 0.3s ease-out;
+}
+
+.status-message.success {
+    background-color: #dcfce7;
+    color: #166534;
+    border: 1px solid #86efac;
+}
+
+.status-message.error {
+    background-color: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fca5a5;
+}
+
+.offer-form {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-group p {
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #4b5563;
+}
+
+.error {
+    color: #dc2626;
+    font-size: 0.875rem;
+    margin-top: 5px;
+    display: block;
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-container {
+    margin-bottom: 20px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.offers-table {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.offers-table h3 {
+    margin-bottom: 20px;
+    color: #1f2937;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.image-preview {
+    margin-top: 10px;
+}
+
+.image-preview img {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.action-buttons button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-size: 0.875rem;
+}
+
+.edit-btn {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    color: white;
+}
+
+.delete-btn {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+}
+
+.view-btn {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+}
+
+.active-btn {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+}
+
+.active-btn.inactive {
+    background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+}
+
+.action-buttons button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .manage-offers-container {
+        padding: 15px;
+    }
+    
+    .offer-form {
+        padding: 20px;
+    }
+    
+    .action-buttons {
+        flex-wrap: wrap;
+    }
+    
+    .action-buttons button {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+    }
+}
+
+.manage-offers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 900px;
+    margin: auto;
+    padding: 30px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+
+.add-offer-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.add-offer-form input {
+    flex: 1;
+    min-width: 150px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 40px;
+}
+.add-offer-form textarea {
+    flex: 1;
+    min-width: 150px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    resize: vertical; /* allows users to resize vertically */
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.add-offer-form button {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.add-offer-form button:hover {
+    background-color: #218838;
+    opacity: 0.9;
+}
+
+/* Error Message Styling */
+.error {
+    color: red;
+    font-size: 14px;
+}
+
+.offers-table-container {
+    width: 100%;
+    overflow-x: auto;  /* Prevent table overflow on small screens */
+}
+
+.offers-table {
+    display: grid;
+    gap: 10px;
+}
+
+.offers-table-header,
+.offers-table-row {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 10px;
+    text-align: center;
+}
+
+.offers-table-header {
+    font-weight: bold;
+    background-color: #f8f8f8;
+    border-radius: 4px;
+}
+
+.offer-actions button {
+    margin-right: 5px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.offer-actions button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design for Tablets (768px and below) */
+@media (max-width: 768px) {
+    .offers-table-header,
+    .offers-table-row {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .add-offer-form input {
+        width: 100%;
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .add-offer-form button {
+        width: 100%;  /* Full width button on smaller screens */
+        text-align: center;
+    }
+}
+.user-form-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.image-preview img {
+    max-width: 100px;
+    max-height: 100px;
+    margin-top: 10px;
+}
+
+
+/* Responsive Design for Mobile Screens (600px and below) */
+@media (max-width: 600px) {
+    .offers-table-header,
+    .offers-table-row {
+        grid-template-columns: repeat(4, 1fr);  /* Simplified grid on smaller screens */
+    }
+
+    .add-offer-form input {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .add-offer-form button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .offer-actions button {
+        padding: 6px 8px;
+        font-size: 12px;
+    }
+
+    .manage-offers {
+        padding: 20px;
+    }
+}
+
+/* Action Buttons in Offer Table */
+button {
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Add Hover Effects (for all buttons) */
+button:hover {
+    opacity: 0.8;
+}
+
+
+/* Search Form Styling */
+.user-form-search {
+    margin: 50px 0 15px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Flexbox for inline input & buttons */
+  .search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between input and buttons */
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  /* Input Styling */
+  .search-container input {
+    flex: 1; /* Input takes remaining space */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 40px;
+    font-size: 16px;
+  }
+  
+  /* Buttons Styling */
+  .user-form-btn-search {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 40px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    white-space: nowrap; /* Prevents text wrapping */
+  }
+  
+  .user-form-btn-search:hover {
+    background-color: #0056b3;
+    opacity: 0.9;
+  }
+  
+  /* Responsive Design for Mobile Screens */
+  @media (max-width: 600px) {
+    .search-container {
+      flex-direction: column; /* Stack items on smaller screens */
+      width: 90%;
+    }
+  
+    .search-container input {
+      width: 100%;
+    }
+  
+    .user-form-btn-search {
+      width: 100%;
+      margin-top: 5px;
+    }
+  }
+  
+  /* Error message css code only */
+  .status-message {
+    padding: 12px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .status-message.success {
+    background-color: #4caf50; /* Green */
+    color: white;
+    box-shadow: 0px 4px 6px rgba(0, 128, 0, 0.2);
+  }
+  
+  .status-message.error {
+    background-color: #f44336; /* Red */
+    color: white;
+    box-shadow: 0px 4px 6px rgba(255, 0, 0, 0.2);
+  }
+  
+  @media (max-width: 600px) {
+    .status-message {
+      font-size: 12px;
+      padding: 10px;
+    }
+  }
+  
+.offer-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+}
+
+.smaller-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.image-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #f5f5f5;
+    color: #999;
+    font-size: 12px;
+    text-align: center;
+    padding: 5px;
+    border-radius: 4px;
+}
+  

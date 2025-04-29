@@ -1,0 +1,11 @@
+.detail {
+    padding: 0px;
+    background-color: #007bff;
+    padding: 10px 20px 10px 20px;
+    color: aliceblue;
+    border-radius: 60px;
+  }
+  
+  .separator {
+    margin: 0 8px; /* adds space on both sides of || */
+  }

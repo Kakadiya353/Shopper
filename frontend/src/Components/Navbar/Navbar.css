@@ -1,9 +1,11 @@
 .navbar {
+    height: 100px;
     display: flex;
-    justify-content: space-around;
-    padding: 16px;
-    box-shadow: 0 1px 3px -2px black;
+    justify-content: space-between;
     align-items: center;
+    padding: 0 50px;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .nav-logo {
@@ -23,7 +25,7 @@
     align-items: center;
     list-style: none;
     gap: 50px;
-    color: #62626262;
+    color: #626262;
     font-size: 20px;
     font-weight: 500;
 }
@@ -42,7 +44,7 @@
     width: 80%;
     height: 3px;
     border-radius: 10px;
-    background: #ff4141;
+    background: #FF4141;
 }
 
 .nav-login-cart {
@@ -65,7 +67,7 @@
 }
 
 .nav-login-cart button:active {
-    background-color: #f3f3f3;
+    background: #f3f3f3;
 }
 
 .nav-cart-count {
@@ -82,6 +84,78 @@
     color: white;
 }
 
+.profile-dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    border: 2px solid #ddd;
+}
+
+.profile-icon:hover {
+    transform: scale(1.1);
+}
+
+.dropdown-content {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    border-radius: 8px;
+    padding: 8px 0;
+    margin-top: 10px;
+    border: 1px solid #e0e0e0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.2s ease;
+}
+
+.profile-dropdown:hover .dropdown-content,
+.profile-dropdown .dropdown-content.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-content a, .dropdown-content button {
+    color: #333;
+    padding: 12px 20px;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    text-align: left;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-content a:hover, .dropdown-content button:hover {
+    background-color: #f5f5f5;
+    color: #000;
+}
+
+.dropdown-content button {
+    color: #ff4141;
+    font-weight: 500;
+}
+
+.dropdown-content button:hover {
+    background-color: #fff0f0;
+}
+
 .nav-dropdown {
     display: none;
 }
@@ -96,7 +170,6 @@
     }
 
     .nav-logo p {
-
         font-size: 25px;
     }
 
@@ -180,7 +253,7 @@
 
 @media (max-width: 500px) {
     .navbar {
-        width: 8px 0px;
+        padding: 8px 0px;
         gap: 0;
     }
 
@@ -194,6 +267,6 @@
     }
 
     .nav-login-cart {
-        transform: scale(0.8);
+        transform: scale(0.9);
     }
 }

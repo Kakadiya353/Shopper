@@ -1,0 +1,254 @@
+/* Container Styles */
+.order-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Detail Styles */
+.detail {
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+/* Status Message Styles */
+.status-message {
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    animation: slideIn 0.3s ease-out;
+}
+
+.status-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.status-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Form Styles */
+.order-form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.order-form h1 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #6e8efb;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(110, 142, 251, 0.2);
+}
+
+.error {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 5px;
+    display: block;
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Search Container */
+.search-container {
+    margin-bottom: 20px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: #6e8efb;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(110, 142, 251, 0.2);
+}
+
+/* Table Styles */
+.order-table {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+
+.order-table h3 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+th {
+    background-color: #f9fafb;
+    font-weight: 600;
+    color: #374151;
+}
+
+tr:hover {
+    background-color: #f9fafb;
+}
+
+/* Action Button Styles */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.edit-btn,
+.delete-btn,
+.view-btn {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.edit-btn {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.view-btn {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.edit-btn:hover,
+.delete-btn:hover,
+.view-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .order-container {
+        padding: 15px;
+    }
+
+    .detail {
+        padding: 15px;
+        font-size: 1rem;
+    }
+
+    .order-form, .order-table {
+        padding: 15px;
+    }
+
+    .form-group input, .search-input {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .order-container {
+        padding: 10px;
+    }
+
+    .detail {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .order-form, .order-table {
+        padding: 10px;
+    }
+
+    .form-group input, .search-input {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    .submit-btn {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .action-buttons {
+        gap: 5px;
+    }
+
+    .edit-btn, .delete-btn, .view-btn {
+        padding: 6px;
+    }
+}

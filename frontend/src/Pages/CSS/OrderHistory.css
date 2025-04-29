@@ -1,0 +1,55 @@
+.order-history-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .order-history-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    color: #333;
+    text-align: center;
+  }
+  
+  .order-history-table-container {
+    overflow-x: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .order-history-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px;
+  }
+  
+  .order-history-table th,
+  .order-history-table td {
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  .order-history-table th {
+    background-color: #f5f5f5;
+    font-weight: 600;
+  }
+  
+  .order-history-table tr:hover {
+    background-color: #f9f9f9;
+  }
+  
+  @media (max-width: 768px) {
+    .order-history-title {
+      font-size: 20px;
+    }
+  
+    .order-history-table th,
+    .order-history-table td {
+      padding: 8px 10px;
+      font-size: 14px;
+    }
+  }
+  

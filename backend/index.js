@@ -1,4 +1,4 @@
-const port = 4000;
+const port = 5000;
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -8,7 +8,17 @@ const path = require("path");
 const cors = require("cors");
 
 app.use(express.json());
-app.use(cors());
+
+// Configure CORS
+const corsOptions = {
+    origin: ['http://localhost:3000', 'http://localhost:5173', 'http://localhost:5174'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+    preflightContinue: false,
+    optionsSuccessStatus: 204
+};
+app.use(cors(corsOptions));
 
 // Database Connection with MongoDB
 mongoose.connect("mongodb+srv://raghavendravenkatesh1:Kanya7733@cluster0.fvcdx.mongodb.net/e-commerce");
